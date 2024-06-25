@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   nginx:
     image: nginx
@@ -19,4 +17,8 @@ volumes:
 
 networks:
   stack-net:
-    external: true
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "10.0.77.0/24"
