@@ -1,0 +1,14 @@
+---
+- name: "Create nginx compose files"
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: "Create nginx-stack.yaml"
+      ansible.builtin.template:
+        src: "./compose/nginx-stack-template.yaml.j2"
+        dest: "./files/nginx-stack-{{ item }}.yaml"
+        mode: "0644"
+      loop: "{{ range(1, (100 | int) + 1) | list }}"
+      loop_control:
+        loop_var: "item"
+        label: "Item : {{ item }}"
