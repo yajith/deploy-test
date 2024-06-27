@@ -1,5 +1,8 @@
 version: '3.8'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 121aa88 (updates)
 services:
   web:
     image: nginx:latest
