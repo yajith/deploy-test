@@ -1,0 +1,32 @@
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "10508:80"
+    secrets:
+      - stack_secret_508
+    configs:
+      - source: stack_config_508
+        target: /mnt/stack_config.conf
+    volumes:
+      - stack_volume:/data
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - webnet
+
+secrets:
+  stack_secret_508:
+    external: true
+
+configs:
+  stack_config_508:
+    external: true
+
+volumes:
+  stack_volume:
+
+networks:
+  webnet:

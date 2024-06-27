@@ -1,0 +1,32 @@
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "10361:80"
+    secrets:
+      - stack_secret_361
+    configs:
+      - source: stack_config_361
+        target: /mnt/stack_config.conf
+    volumes:
+      - stack_volume:/data
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - webnet
+
+secrets:
+  stack_secret_361:
+    external: true
+
+configs:
+  stack_config_361:
+    external: true
+
+volumes:
+  stack_volume:
+
+networks:
+  webnet:

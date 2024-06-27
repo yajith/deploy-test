@@ -1,0 +1,32 @@
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "10832:80"
+    secrets:
+      - stack_secret_832
+    configs:
+      - source: stack_config_832
+        target: /mnt/stack_config.conf
+    volumes:
+      - stack_volume:/data
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - webnet
+
+secrets:
+  stack_secret_832:
+    external: true
+
+configs:
+  stack_config_832:
+    external: true
+
+volumes:
+  stack_volume:
+
+networks:
+  webnet:

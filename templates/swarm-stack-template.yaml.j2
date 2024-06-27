@@ -1,0 +1,32 @@
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "{{ 10000 + item }}:80"
+    secrets:
+      - stack_secret_{{ item }}
+    configs:
+      - source: stack_config_{{ item }}
+        target: /mnt/stack_config.conf
+    volumes:
+      - stack_volume:/data
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - webnet
+
+secrets:
+  stack_secret_{{ item }}:
+    external: true
+
+configs:
+  stack_config_{{ item }}:
+    external: true
+
+volumes:
+  stack_volume:
+
+networks:
+  webnet:

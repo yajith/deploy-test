@@ -1,0 +1,32 @@
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "10916:80"
+    secrets:
+      - stack_secret_916
+    configs:
+      - source: stack_config_916
+        target: /mnt/stack_config.conf
+    volumes:
+      - stack_volume:/data
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - webnet
+
+secrets:
+  stack_secret_916:
+    external: true
+
+configs:
+  stack_config_916:
+    external: true
+
+volumes:
+  stack_volume:
+
+networks:
+  webnet:

@@ -1,0 +1,14 @@
+---
+- name: "Create stack files"
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: "Create swarm stack files"
+      ansible.builtin.template:
+        src: "./templates/swarm-stack-template.yaml.j2"
+        dest: "./swarm/nginx-stack-{{ item }}.yaml"
+        mode: "0644"
+      loop: "{{ range(1, (1000 | int) + 1) | list }}"
+      loop_control:
+        loop_var: "item"
+        label: "Item : {{ item }}"
