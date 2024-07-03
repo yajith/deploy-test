@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  client:
+    image: yajithd/test-client:latest
+    environment:
+      CLIENT_ID: "client-2"
+      SERVER_URL: "http://10.10.3.1:5000/ping"

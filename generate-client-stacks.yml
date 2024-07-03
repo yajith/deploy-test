@@ -1,12 +1,12 @@
 ---
-- name: "Create nginx compose files"
+- name: "Create stack files"
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: "Create nginx-stack.yaml"
+    - name: "Create swarm stack files"
       ansible.builtin.template:
-        src: "./templates/nginx-stack-template.yaml.j2"
-        dest: "./docker/nginx-stack-{{ item }}.yaml"
+        src: "./templates/client-stack-template.yaml.j2"
+        dest: "./client-stacks/client-stack-{{ item }}.yaml"
         mode: "0644"
       loop: "{{ range(1, (100 | int) + 1) | list }}"
       loop_control:

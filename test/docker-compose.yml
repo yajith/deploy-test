@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+
+  client1:
+    build: ./client
+    environment:
+      CLIENT_ID: "client1"
+      SERVER_URL: "http://server:5000/ping"
+
+  client2:
+    build: ./client
+    environment:
+      CLIENT_ID: "client2"
+      SERVER_URL: "http://server:5000/ping"
+
+  client3:
+    build: ./client
+    environment:
+      CLIENT_ID: "client3"
+      SERVER_URL: "http://server:5000/ping"
