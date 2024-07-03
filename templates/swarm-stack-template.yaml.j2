@@ -2,8 +2,6 @@ version: '3.8'
 services:
   web:
     image: nginx:latest
-    ports:
-      - "{{ 10000 + item }}:80"
     secrets:
       - stack_secret_{{ item }}
     configs:
@@ -12,7 +10,7 @@ services:
     volumes:
       - stack_volume:/data
     deploy:
-      replicas: 1
+      replicas: 10
       restart_policy:
         condition: on-failure
     networks:
