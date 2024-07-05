@@ -13,8 +13,9 @@ services:
   client:
     image: yajithd/client:latest
     environment:
-      CLIENT_ID: "75d583c4-3c97-4c11-8537-e5f4d2c9aab7"
+      CLIENT_ID: "555a5b43-2b5c-40dc-903e-022c77825e97"
       SERVER_URL: "http://10.20.0.23:5000/ping"
+      TEST_VAR: "v2"
     networks:
       - webnet            
 
