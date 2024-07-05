@@ -15,6 +15,7 @@ services:
     environment:
       CLIENT_ID: "39371069-9e5d-4f7c-88b1-82086eb4e984"
       SERVER_URL: "http://10.20.0.23:5000/ping"
+      TEST_VAR: "v1"
     networks:
       - webnet            
 
