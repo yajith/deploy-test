@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  web:
+    image: nginx:latest
+    volumes:
+      - stack_volume:/data
+    deploy:
+      replicas: 10
+      restart_policy:
+        condition: on-failure
+    networks:
+      - webnet
+  client:
+    image: yajithd/client:latest
+    environment:
+      CLIENT_ID: "placeholder-text"
+      SERVER_URL: "http://placeholder-ip:5000/ping"
+    networks:
+      - webnet            
+
+volumes:
+  stack_volume:
+
+networks:
+  webnet:
