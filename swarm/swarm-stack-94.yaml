@@ -13,7 +13,7 @@ services:
   client:
     image: yajithd/client:latest
     environment:
-      CLIENT_ID: "{{ uuid }}"
+      CLIENT_ID: "33aa1cf7-765a-4d7b-b27c-9d0050db114a"
       SERVER_URL: "http://10.20.0.23:5000/ping"
     networks:
       - webnet            
