@@ -13,10 +13,10 @@ services:
   client:
     image: yajithd/client:latest
     environment:
-      CLIENT_ID: "placeholder-text"
-      SERVER_URL: "http://placeholder-ip:5000/ping"
+      CLIENT_ID: "${CLIENT_ID}"
+      SERVER_URL: "${SERVER_URL}"
     networks:
-      - webnet            
+      - webnet
 
 volumes:
   stack_volume:
