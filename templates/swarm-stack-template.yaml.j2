@@ -5,7 +5,7 @@ services:
     volumes:
       - stack_volume:/data
     deploy:
-      replicas: 10
+      replicas: 1
       restart_policy:
         condition: on-failure
     networks:
@@ -14,7 +14,7 @@ services:
     image: yajithd/client:latest
     environment:
       CLIENT_ID: "{{ uuid }}"
-      SERVER_URL: "http://10.20.0.23:5000/ping"
+      SERVER_URL: "http://10.10.3.100:5000/ping"
       TEST_VAR: "v2"
     networks:
       - webnet            

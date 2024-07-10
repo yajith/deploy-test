@@ -6,7 +6,7 @@
     - name: "Create swarm stack files"
       ansible.builtin.template:
         src: "./templates/swarm-stack-template.yaml.j2"
-        dest: "./swarm/swarm-stack-{{ item }}.yaml"
+        dest: "./swarm_stack/swarm-stack-{{ item }}.yaml"
         mode: "0644"
       loop: "{{ range(1, (100 | int) + 1) | list }}"
       loop_control:

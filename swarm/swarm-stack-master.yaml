@@ -10,13 +10,6 @@ services:
         condition: on-failure
     networks:
       - webnet
-  swarm_client:
-    image: yajithd/client:latest
-    environment:
-      CLIENT_ID: "${CLIENT_ID}"
-      SERVER_URL: "${SERVER_URL}"
-    networks:
-      - webnet
 
 volumes:
   stack_volume:
