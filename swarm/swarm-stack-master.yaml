@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  web:
+  swarm_web:
     image: nginx:latest
     volumes:
       - stack_volume:/data
@@ -10,7 +10,7 @@ services:
         condition: on-failure
     networks:
       - webnet
-  client:
+  swarm_client:
     image: yajithd/client:latest
     environment:
       CLIENT_ID: "${CLIENT_ID}"
