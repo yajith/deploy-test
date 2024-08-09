@@ -8,5 +8,4 @@ jobs:
     steps:
       - name: check docker
         run: |
-          echo $(docker version)
-          echo $(docker compose version)
+          echo $(lsb_release -a)
