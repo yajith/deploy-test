@@ -8,5 +8,6 @@ jobs:
     steps:
       - name: check docker
         run: |
+          sudo apt update
           sudo apt install docker-compose-plugin
           echo $(dpkg -L docker-compose-plugin)
