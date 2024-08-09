@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: check docker
         run: |
-          echo $(lsb_release -a)
+          echo $(sudo dpkg -l | grep compose)
