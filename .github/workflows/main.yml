@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: '[preparation] checkout the current branch'
+        uses: actions/checkout@v4.1.1
+
       - name: check docker
         run: |
-          echo $(find / docker-compose)
+          echo $(pwd)
+          echo $(ls -l)
