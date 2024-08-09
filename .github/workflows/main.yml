@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: check docker
         run: |
-          echo $(sudo dpkg -l | grep compose)
+          echo $(docker info)
