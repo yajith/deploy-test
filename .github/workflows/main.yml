@@ -6,9 +6,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: '[preparation] checkout the current branch'
-      #   uses: actions/checkout@v4.1.1
+      - name: '[preparation] checkout the current branch'
+        uses: actions/checkout@v4.1.1
 
-      - name: check docker
+      # - name: check docker
+      #   run: |
+      #     echo $(env)
+
+      - name: print vars
         run: |
-          echo $(env)
+          echo $(pwd)
+          echo ${GITHUB_WORKSPACE}
