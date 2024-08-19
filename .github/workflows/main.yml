@@ -17,3 +17,7 @@ jobs:
         run: |
           echo $(pwd)
           echo ${GITHUB_WORKSPACE}
+
+      - name: check ansible
+        run: |
+          echo $(ansible-playbook --version)
