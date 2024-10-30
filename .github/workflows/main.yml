@@ -1,23 +1,33 @@
 name: test
 on: 
   workflow_dispatch:
+
+env:
+  NODE_VERSION: 20.x
+
 jobs:
   test-runners:
     runs-on: ubuntu-latest
-
     steps:
       - name: '[preparation] checkout the current branch'
         uses: actions/checkout@v4.1.1
+
+      - uses: actions/setup-node@v4.0.2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Test env
+        run: echo $(env)
 
       # - name: check docker
       #   run: |
       #     echo $(env)
 
-      - name: print vars
-        run: |
-          echo $(pwd)
-          echo ${GITHUB_WORKSPACE}
+      # - name: print vars
+      #   run: |
+      #     echo $(pwd)
+      #     echo ${GITHUB_WORKSPACE}
 
-      - name: check ansible
-        run: |
-          echo $(ansible-playbook --version)
+      # - name: check ansible
+      #   run: |
+      #     echo $(ansible-playbook --version)
