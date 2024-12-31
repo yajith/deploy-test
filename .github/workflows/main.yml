@@ -14,7 +14,7 @@ jobs:
           echo $(hostname -i)
           echo $IP_ADDRESS
         env:
-          IP_ADDRESS: $(hostname -i)
+          IP_ADDRESS: ${hostname -i}
         
       # - name: '[preparation] checkout the current branch'
       #   uses: actions/checkout@v4.1.1
