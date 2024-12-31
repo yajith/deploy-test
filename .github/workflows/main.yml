@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: echo $(df -h)
+        run: echo $(hostname -i)
         
       # - name: '[preparation] checkout the current branch'
       #   uses: actions/checkout@v4.1.1
