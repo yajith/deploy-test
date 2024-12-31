@@ -9,12 +9,14 @@ jobs:
   test-runners:
     runs-on: ubuntu-latest
     steps:
+      - name: Find IP Address
+        id: find_ip
+        run: echo "IP_ADDRESS=$(hostname -i)" >> $GITHUB_ENV
+
       - name: Test
         run: |
           echo $(hostname -i)
           echo $IP_ADDRESS
-        env:
-          IP_ADDRESS: ${hostname -i}
         
       # - name: '[preparation] checkout the current branch'
       #   uses: actions/checkout@v4.1.1
