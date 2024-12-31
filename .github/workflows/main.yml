@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: echo $(hostname -i)
+        run: |
+          echo $(hostname -i)
+          echo $IP_ADDRESS
+        env:
+          IP_ADDRESS: $(hostname -i)
         
       # - name: '[preparation] checkout the current branch'
       #   uses: actions/checkout@v4.1.1
