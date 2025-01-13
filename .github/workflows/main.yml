@@ -1,6 +1,9 @@
 name: test
 on: 
   workflow_dispatch:
+  create:
+    branches:
+      - 'release/*' 
 
 env:
   NODE_VERSION: 20.x
