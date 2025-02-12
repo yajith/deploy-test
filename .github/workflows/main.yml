@@ -20,6 +20,7 @@ jobs:
         run: |
           echo $(hostname -i)
           echo $IP_ADDRESS
+          echo $(git --version)
         
       # - name: '[preparation] checkout the current branch'
       #   uses: actions/checkout@v4.1.1
