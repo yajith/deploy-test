@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  initilize:
+  initialize:
     runs-on: ubuntu-latest
     steps:
       - name: Test
@@ -12,7 +12,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: [initilize]
+    needs: [initialize]
     steps:
       - name: Test
         run: |
